@@ -1,13 +1,60 @@
 <!doctype html>
-<html lang="en">
-  <head>
+<html lang="de">
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PlanIt</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
-  </head>
-  <body>
-    <h1>Hello, waaaaaaaaaaarld!</h1>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
-  </body>
+    <link rel="icon" href="./srcFrontend/Logo.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
+</head>
+
+<body>
+    <header class="bg-light text-center py-1">
+        <nav class="navbar bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand" href="./index.html">
+                    <img src="./srcFrontend/Logo.webp" alt="Bootstrap" width="auto" height="50">
+                    Welcome to PlanIt </a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+
+                <form id="eventForm" class="col-11 my-auto border border-primary-subtle p-4 rounded">
+                    <div class="mb-3">
+                        <label for="eventDescription" class="form-label">Bitte geben Sie eine detaillreiche
+                            Beschreibung Ihres geplanten Events ein.</label>
+                        <textarea class="form-control" id="eventDescription" rows="5" required></textarea>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="dataConsent" required>
+                        <label class="form-check-label" for="dataConsent">Zustimmung: "Ihre Daten werden
+                            zur Verarbeitungszwecke an ChatGPT übermittelt.</label>
+                    </div>
+                    <button type="submit" class="mt-3 btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer bg-dark text-light text-center text-lg-start mt-5">
+            <div class="row">
+                <div class="text-center">
+                    <p class="mt-2">&#169 PlanIt</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById("dataConsent").required = true;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
