@@ -1,6 +1,5 @@
 import express from "express";
-import Configuration from "openai";
-import OpenAIApi from "openai";
+import OpenAI from "openai";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -12,19 +11,19 @@ const port = 3000;
 app.use(express.json());
 
 // OpenAI configuration
-const configuration = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
+const client = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY, // This is the default and can be omitted
+  });
 
 // API endpoint for OpenAI completion
 app.post("/api/completion", async (req, res) => {
+    console.log(`request on ${port}`);
     const { prompt } = req.body;
 
     try {
-        const completion = await openai.createCompletion({
-            model: "text-davinci-003",
-            prompt,
+        const completion = await client.chat.completions.create({
+            model: 'gpt-4o',
+            input: prompt,
             max_tokens: 4000,
         });
         res.json({ response: completion.data.choices[0].text });
