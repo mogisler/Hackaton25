@@ -1,6 +1,8 @@
 import express from "express";
-import { Configuration, OpenAIApi } from "openai";
+import Configuration from "openai";
+import OpenAIApi from "openai";
 import dotenv from "dotenv";
+import OpenAI from "openai/index.mjs";
 
 dotenv.config();
 
