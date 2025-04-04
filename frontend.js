@@ -1,5 +1,5 @@
 document.getElementById("submit").addEventListener("click", async () => {
-    const prompt = document.getElementById("prompt").value;
+    const prompt = document.getElementById("eventDescription").value;
 
     try  {
         // Test commend
