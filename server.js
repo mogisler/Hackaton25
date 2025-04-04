@@ -34,10 +34,21 @@ app.post("/api/completion", async (req, res) => {
 });
 
 try {
-// Start the server
-    app.listen(port, () => {
+    // Start the server
+    const server = app.listen(port, () => {
         console.log(`Server is running on http://localhost:${port}`);
     });
+
+    server.on("error", (error) => {
+        if (error.code === "EADDRINUSE") {
+            console.error(`Error while running the server: Port ${port} is already in use.`);
+            process.exit(2);
+        } else {
+            console.error(`Error while running the server: ${error}`);
+            process.exit(3);
+        }
+    });
 } catch (error) {
-    console.error("Failed to start the server:", error);
+    console.error(`Failed to start the server: ${error}`);
+    process.exit(1);
 }
