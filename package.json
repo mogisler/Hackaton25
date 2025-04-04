@@ -1,0 +1,27 @@
+{
+  "name": "hackaton25",
+  "version": "1.0.0",
+  "description": "Willkommen zum Hackathon25-Projekt! Dieses Repository enthält den Code und die Dokumentation für das Hackathon-Projekt 2025.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mogisler/Hackaton25.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mogisler/Hackaton25/issues"
+  },
+  "homepage": "https://github.com/mogisler/Hackaton25#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "openai": "^4.11.1"
+  }
+}
