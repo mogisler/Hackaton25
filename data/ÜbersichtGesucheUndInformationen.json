@@ -361,5 +361,16 @@
     "Zustaendigkeit": "Laboratorien der Urkantone",
     "KontaktEmail": "kt@laburk.ch",
     "KontaktTelefon": "041 825 41 51"
+  },
+  {
+    "Kategorie": "Gesuch",
+    "Titel": "Clown-Besuch",
+    "Beschreibung": "Wenn bei einer Veranstalltung ein Clown auftritt, muss dafür eine Bewilligung von der Spass-Polizei eingeholt werden. Der Bewilliung müssen vorgängig alle Witze mitgeteilt werden und auf ihre tauglichkeit geprüft werden.",
+    "LinkInformationsseite": "https://clown.ur.ch",
+    "LinkFormular": "https://clown.ur.ch/gesuch.pdf",
+    "Ebene": "Kanton",
+    "Zustaendigkeit": "Amt für Arbeit und Migration",
+    "KontaktEmail": "clown@ur.ch",
+    "KontaktTelefon": null
   }
 ]
