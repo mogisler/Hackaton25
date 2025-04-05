@@ -1,5 +1,6 @@
-import express from "express";
+import express, { text } from "express";
 import OpenAI from "openai";
+import RequestOptions from "openai";
 import dotenv from "dotenv";
 import cors from "cors";
 
@@ -20,7 +21,35 @@ const client = new OpenAI({
 // API endpoint for OpenAI completion
 app.post('/openAPI', async(req, res) => {
     console.log(`request on ${port}`);
-    const { prompt } = req.body;
+    const { inputprompt } = req.body;
+
+    const prompt = '# Einleitung \
+    \
+    Unten befinden sich Informationen zu einer Veranstaltung. Das Ziel\ ist es, diese Veranstaltung zu analysieren und die relevanten\ Informationen als JSON auszugeben. Es soll nur das JSON ausgegeben\ werden, kein Zusatztext.\
+    \
+    - Art: Die Art einer Veranstaltung: Private Veranstaltung,\ Wochenmarkt, Demonstration, etc.\
+    - Ort: Der Ort im Kanton Uri, sollte mindestens die Gemeinde\ beinhalten\
+    - Anzahl Teilnehmer: Zahl der Teilnehmer\
+    - Datum: Wenn bekannt das Datum in der Form dd.MM.yyyy\
+    - Zeit: Wenn bekannt die Uhrzeit in der Form HH:mm\
+    - Ausschank: Boolean-Wert (true, false) ob an der Veranstaltung\ Essen und Getränke verkauft werden\
+    \
+    Wichtig: Wenn eine Information nicht bekannt ist, bitte `null`\ zurückgeben. Bitte gib ein reines unformatiertes JSON zurück.\
+    \
+    # JSON Format\
+    \
+    {\
+        "Art": "<string>",\
+        "Ort": "<string>",\
+        "AnzahlTeilnehmer": <number>,\
+        "Datum": "<date>",\
+        "Zeit": "<time>",\
+        "Ausschank": <bool>\
+    }\
+    \
+    # Information zur Veranstaltung \\ '+ inputPromt;
+
+
 
     try {
         const completion = await client.responses.create({
@@ -38,28 +67,51 @@ app.post('/openAPI', async(req, res) => {
 });
 
 app.post('/trainedAPI', async(req, res) => {
-    const thread = await client.beta.threads.create();
-    await client.beta.threads.messages.create(thread.id, {
-        role: 'user',
-        content: "Ich möchte eine private Veranstaltung in meinem Garten in Altdorf organisieren. Es kommen ca. 20 Personen aus der ganzen Schweiz primär mit ihrem Auto. Leider habe ich nicht genügend Parkplätze. Mein Kollege Toni bringt eine Drone mit, damit wir diese nutzen können.",
-    });
-    
-    const run = await client.beta.threads.runs.create(thread.id, {
-        assistant_id:'asst_TIseKb88KKuVNXy7rGbErSpi',
-    });
+    try{
+        const { prompt } = req.body;
+        const thread = await client.beta.threads.create({
+            tool_resources: {
+                file_search: {
+                    vector_store_ids: ['vs_67f0ec62c7fc8191839ff5c6e9d9a471'],
+                },
+                
+            },
 
-    // 4. Poll until the run completes
-    let runStatus;
-    do {
-        await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait 1s
-        runStatus = await client.beta.threads.runs.retrieve(thread.id, run.id);
-    } while (runStatus.status !== "completed");
+        });
+        await client.beta.threads.messages.create(thread.id, {
+            role: 'user',
+            content: prompt,
+            
+        });
+        
+        const run = await client.beta.threads.runs.create(thread.id, {
+            assistant_id:'asst_TIseKb88KKuVNXy7rGbErSpi',
+            response_format: {type: 'json_object'},
 
-    // 5. Retrieve the messages
-    const messages = await client.beta.threads.messages.list(thread.id);
+        });
 
-    for (const message of messages.data.reverse()) {
-        console.log(`${message.role}: ${message.content[0].text.value}`);
+        // 4. Poll until the run completes
+        let runStatus;
+        do {
+            await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait 1s
+            runStatus = await client.beta.threads.runs.retrieve(thread.id, run.id);
+        } while (runStatus.status !== "completed");
+
+        // 5. Retrieve the messages
+        const messages = await client.beta.threads.messages.list(thread.id);
+
+
+        for (const message of messages.data.reverse()) {
+            //const stringVar = "eoinfesoi"
+            if(message.content[0].text.value.startsWith('```json')){
+                res.json(message.content[0].text.value.substring(7, message.content[0].text.value.length - 3));
+                return;
+            }
+            //console.log(`${message.role}: ${message.content[0].text.value}`);
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json(error);
     }
 });
 
