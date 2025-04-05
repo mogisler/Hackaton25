@@ -48,6 +48,19 @@ app.post('/trainedAPI', async(req, res) => {
         assistant_id:'asst_TIseKb88KKuVNXy7rGbErSpi',
     });
 
+    // 4. Poll until the run completes
+    let runStatus;
+    do {
+        await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait 1s
+        runStatus = await client.beta.threads.runs.retrieve(thread.id, run.id);
+    } while (runStatus.status !== "completed");
+
+    // 5. Retrieve the messages
+    const messages = await client.beta.threads.messages.list(thread.id);
+
+    for (const message of messages.data.reverse()) {
+        console.log(`${message.role}: ${message.content[0].text.value}`);
+    }
 });
 
 try {
