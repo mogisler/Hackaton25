@@ -149,11 +149,6 @@
     </script>
 
 
-
-
-
-
-
 </head>
 
 <body>
@@ -167,46 +162,55 @@
         </nav>
     </header>
     <main>
-        <div class="container my-5">
+        <div class="container">
             <div class="row justify-content-center">
-
-                <form id="eventForm" class="col-11 my-auto border border-primary-subtle p-4 rounded">
-                    <div class="mb-3">
-                        <label for="eventDescription" class="form-label">Bitte geben Sie eine detaillreiche
-                            Beschreibung Ihres geplanten Events ein.</label>
-                        <textarea class="form-control" id="eventDescription" rows="5" required></textarea>
+                <div class="col-11 progress">
+                    <div class="progress-bar" role="progressbar" id="progress" aria-valuemin="0" aria-valuemax="100">
                     </div>
-                    <div class="form-check form-switch d-none">
-                        <input class="form-check-input" type="checkbox" role="switch" id="dataConsent" required>
-                        <label class="form-check-label" for="dataConsent">Zustimmung: "Ihre Daten werden
-                            zur Verarbeitungszwecke an ChatGPT übermittelt.</label>
-                    </div>
-                    <button id="submit" type="button" class="mt-3 btn btn-primary">Submit</button>
-                </form>
-            </div>
-        </div>
-        <div class="container my-4 d-none" id="detailsContainer">
-            <div class="row">
-                <h3>Fehlende Informationen zum Event in der Tabelle einfügen</h3>
-                <table class="table table-bordered">
-                    <tbody id="tableBody">
-                        <!-- Rows will be dynamically added here -->
-                    </tbody>
-                </table>
-                <button id="submitDetails" class="btn btn-primary mt-3 col-3">Submit</button>
-            </div>
-        </div>
-        <div class="container my-5 d-none" id="lastAnswerContainer">
-            <div class="row">
-                <div class="col">
-                    <table class="table table-bordered table-striped">
-                        <tbody id="letzteTabelle">
-                            <!-- Die Tabelle wird dynamisch generiert -->
-                        </tbody>
-                    </table>
                 </div>
             </div>
-        </div>
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <form id="eventForm" class="col-11 my-auto border border-primary-subtle p-4 rounded">
+                        <div class="mb-3">
+                            <label for="eventDescription" class="form-label">Bitte geben Sie eine detaillreiche
+                                Beschreibung Ihres geplanten Events ein.</label>
+                            <textarea class="form-control" id="eventDescription" rows="5" required></textarea>
+                        </div>
+                        <div class="form-check form-switch d-none">
+                            <input class="form-check-input" type="checkbox" role="switch" id="dataConsent" required>
+                            <label class="form-check-label" for="dataConsent">Zustimmung: "Ihre Daten werden
+                                zur Verarbeitungszwecke an ChatGPT übermittelt.</label>
+                        </div>
+                        <button id="submit" type="button" class="mt-3 btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="container my-4 d-none col-11 justify-content-center" id="detailsContainer">
+                <div class="row">
+                    <div class="col">
+                        <h4>Fehlende Informationen zum Event in der Tabelle einfügen</h4>
+                        <table class="table table-bordered">
+                            <tbody id="tableBody">
+                                <!-- Rows will be dynamically added here -->
+                            </tbody>
+                        </table>
+                        <button id="submitDetails" class="btn btn-primary mt-3 col-11 col-md-4">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container my-5 d-none justify-content-center" id="lastAnswerContainer">
+                <div class="row">
+                    <div class="col">
+
+                        <table class="col-11 table table-bordered table-striped">
+                            <tbody id="letzteTabelle">
+                                <!-- Die Tabelle wird dynamisch generiert -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
     </main>
     <footer>
         <div class="footer bg-dark text-light text-center text-lg-start mt-5">
@@ -228,6 +232,9 @@
             document.getElementById('eventDescription').setAttribute("readonly", true);
             document.getElementById('eventDescription').setAttribute("disabled", true);
             document.getElementById('detailsContainer').classList.remove('d-none');
+            document.getElementById('progress').style.width = '50%';
+
+
         });
 
 
@@ -235,6 +242,7 @@
             document.getElementById('tableBody').parentElement.parentElement.style.opacity = '0.5';
             document.getElementById('tableBody').parentElement.parentElement.style.pointerEvents = 'none';
             document.getElementById('lastAnswerContainer').classList.remove('d-none');
+            document.getElementById('progress').style.width = '100%';
         });
     </script>
 </body>
