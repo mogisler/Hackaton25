@@ -70,7 +70,15 @@ app.post('/trainedAPI', async(req, res) => {
     try{
         const input = req.body.inputPrompt
         const parameters = req.body.parameters
-        const prompt =  `Struckutierte Eventdaten \n JSON ${JSON.stringify(parameters)} \n und die Beschreibung \n ${input} \n `;
+        const prompt =  `# Infromationen zu den Eventdaten: \n
+        - Art: Die Art einer Veranstaltung: Private Veranstaltung,\ Wochenmarkt, Demonstration, etc.\n
+        - Ort: Der Ort im Kanton Uri, sollte mindestens die Gemeinde\ beinhalten\n
+        - Anzahl Teilnehmer: Zahl der Teilnehmer\n
+        - Datum: Wenn bekannt das Datum in der Form dd.MM.yyyy\n
+        - Zeit: Wenn bekannt die Uhrzeit in der Form HH:mm\n
+        - Ausschank: Boolean-Wert (true, false) ob an der Veranstaltung\ Essen und Getränke verkauft werden\n
+        #Struckutierte Eventdaten als JSON \n ${JSON.stringify(parameters)}
+        \n #Eventbeschreibung \n ${input} \n `;
         const thread = await client.beta.threads.create({
             tool_resources: {
                 file_search: {
@@ -104,8 +112,8 @@ app.post('/trainedAPI', async(req, res) => {
 
 
         for (const message of messages.data.reverse()) {
-            //const stringVar = "eoinfesoi"
             if(message.content[0].text.value.startsWith('```json')){
+                // TODO make variable
                 res.json(JSON.parse(message.content[0].text.value.substring(7, message.content[0].text.value.length - 3)));
                 return;
             }
