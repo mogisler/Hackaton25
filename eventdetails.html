@@ -10,15 +10,37 @@
 </head>
 
 <body>
-    <div class="container mt-4">
-        <h3>Fehlende Event Details in der Tabelle Eingeben</h3>
-        <table class="table table-bordered">
-            <tbody id="tableBody">
-                <!-- Rows will be dynamically added here -->
-            </tbody>
-        </table>
-        <button id="submitDetails" class="btn btn-primary mt-3">Submit</button>
-    </div>
+    <header class="bg-light text-center py-1">
+        <nav class="navbar bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand" href="./index.html">
+                    <img src="./srcFrontend/Logo.webp" alt="Bootstrap" width="auto" height="50">
+                    Welcome to PlanIt </a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container mt-4">
+            <div class="row">
+                <h3>Fehlende Event Details in der Tabelle Eingeben</h3>
+                <table class="table table-bordered">
+                    <tbody id="tableBody">
+                        <!-- Rows will be dynamically added here -->
+                    </tbody>
+                </table>
+                <button id="submitDetails" class="btn btn-primary mt-3 col-3">Submit</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer bg-dark text-light text-center text-lg-start mt-5">
+            <div class="row">
+                <div class="text-center">
+                    <p class="mt-2">&#169 PlanIt</p>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="displaytable.js"></script>
 </body>
 
