@@ -1,4 +1,5 @@
 document.getElementById("submit").addEventListener("click", async () => {
+    window.location.href = "eventdetails.html";
     const prompt = document.getElementById("eventDescription").value;
 
     try  {
@@ -21,4 +22,5 @@ document.getElementById("submit").addEventListener("click", async () => {
         console.error(error);
         document.getElementById("response").innerText = "Failed to connect to the server.";
     }
+    
 });
