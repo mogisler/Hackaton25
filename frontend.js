@@ -1,64 +1,52 @@
 document.getElementById("submit").addEventListener("click", async () => {
-    const prompt = document.getElementById("eventDescription").value;
+    const inputPromt = document.getElementById("eventDescription").value;
+    const prompt = '# Einleitung \
+                    \
+                    Unten befinden sich Informationen zu einer Veranstaltung. Das Ziel\ ist es, diese Veranstaltung zu analysieren und die relevanten\ Informationen als JSON auszugeben. Es soll nur das JSON ausgegeben\ werden, kein Zusatztext.\
+                    \
+                    - Art: Die Art einer Veranstaltung: Private Veranstaltung,\ Wochenmarkt, Demonstration, etc.\
+                    - Ort: Der Ort im Kanton Uri, sollte mindestens die Gemeinde\ beinhalten\
+                    - Anzahl Teilnehmer: Zahl der Teilnehmer\
+                    - Datum: Wenn bekannt das Datum in der Form dd.MM.yyyy\
+                    - Zeit: Wenn bekannt die Uhrzeit in der Form HH:mm\
+                    - Ausschank: Boolean-Wert (true, false) ob an der Veranstaltung\ Essen und Getränke verkauft werden\
+                    \
+                    Wichtig: Wenn eine Information nicht bekannt ist, bitte `null`\ zurückgeben. Bitte gib ein reines unformatiertes JSON zurück.\
+                    \
+                    # JSON Format\
+                    \
+                    {\
+                        "Art": "<string>",\
+                        "Ort": "<string>",\
+                        "AnzahlTeilnehmer": <number>,\
+                        "Datum": "<date>",\
+                        "Zeit": "<time>",\
+                        "Ausschank": <bool>\
+                    }\
+                    \
+                    # Information zur Veranstaltung \\ '+ inputPromt;
 
-    // Test commend
-    const request = {
-        method: "GET",
-    };
-    
-    await fetch("http://localhost:3000/test")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log(data);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+    try  {
+        const request = {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body:  JSON.stringify({ prompt : prompt }),
+        };
 
+        const response = await fetch("http://localhost:3000/openAPI", request);
 
-    // try  {
-    //     // Test commend
-    //     const request = {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "test",
-    //         },
-    //         body: JSON.stringify({ prompt }),
-    //     };
+        const data = await response.json();
+        if (response.ok) {
+            document.getElementById("response").innerText = data.response;
+        } else {
+            document.getElementById("response").innerText = "Error: " + data.error;
+        }
 
-    //     const response = await fetch("http://localhost:3000/test", request);
-
-    //     const data = await response.json();
-    //     if (response.ok) {
-    //         document.getElementById("response").innerText = data.response;
-    //     } else {
-    //         document.getElementById("response").innerText = "Error: " + data.error;
-    //     }
-
-    //     console.log(data);
-    // } catch (error) {
-    //     console.error(error);
-    //     document.getElementById("response").innerText = "Failed to connect to the server.";
-    // }
-});
-
-document.getElementById("submit").addEventListener("click", async () => {
-    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-    await delay(100);
-    const response = await fetch("http://localhost:3000/test", ); 
-
-    if (!response.ok) {
-        throw new Error(`Network response was not ok: ${response.statusText}`);
+        console.log(data);
+    } catch (error) {
+        console.error(error);
+        document.getElementById("response").innerText = "Failed to connect to the server.";
     }
-
-    const data = await response.json();
-    console.log(data);
-
-    // Display the response in an element with ID 'response' (if it exists)
-    document.getElementById("response").innerText = JSON.stringify(data, null, 2);
 });
