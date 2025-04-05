@@ -106,7 +106,7 @@ app.post('/trainedAPI', async(req, res) => {
         for (const message of messages.data.reverse()) {
             //const stringVar = "eoinfesoi"
             if(message.content[0].text.value.startsWith('```json')){
-                res.json(message.content[0].text.value.substring(7, message.content[0].text.value.length - 3));
+                res.json(JSON.parse(message.content[0].text.value.substring(7, message.content[0].text.value.length - 3)));
                 return;
             }
             //console.log(`${message.role}: ${message.content[0].text.value}`);
