@@ -68,7 +68,9 @@ app.post('/openAPI', async(req, res) => {
 
 app.post('/trainedAPI', async(req, res) => {
     try{
-        const { prompt } = req.body;
+        const input = req.body.inputPrompt
+        const parameters = req.body.parameters
+        const prompt =  `Struckutierte Eventdaten \n JSON ${JSON.stringify(parameters)} \n und die Beschreibung \n ${input} \n `;
         const thread = await client.beta.threads.create({
             tool_resources: {
                 file_search: {
