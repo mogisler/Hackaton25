@@ -29,7 +29,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container my-5">
+            <div class="container my-2">
                 <div class="row justify-content-center">
                     <form id="eventForm" class="col-11 my-auto border border-primary-subtle p-4 rounded">
                         <div class="mb-3">
@@ -46,9 +46,9 @@
                     </form>
                 </div>
             </div>
-            <div class="container my-4 d-none col-11 justify-content-center" id="detailsContainer">
+            <div class="container my-2 d-none col-11 justify-content-center" id="detailsContainer">
                 <div class="row">
-                    <div class="col">
+                    <div class="col border border-primary-subtle p-4 rounded">
                         <h4>Bitte überprüfen Sie die Informationen und ergänzen Sie die Fehlenden Informationen.</h4>
                         <table class="table table-bordered">
                             <tbody id="tableBody">
@@ -60,9 +60,9 @@
                     </div>
                 </div>
             </div>
-            <div class="container my-5 d-none justify-content-center" id="lastAnswerContainer">
+            <div class="container col-11 my-2 d-none justify-content-center" id="lastAnswerContainer">
                 <div class="row">
-                    <div class="col">
+                    <div class="col border border-primary-subtle p-4 rounded">
                         <table class="col-11 table table-bordered table-striped">
                             <tbody id="letzteTabelle">
                                 <!-- Die Tabelle wird dynamisch generiert -->
@@ -87,7 +87,6 @@
         crossorigin="anonymous"></script>
     <script src="frontend.js"></script>
     <script src="displaytable.js"></script>
-
     <script>
         document.getElementById('submit').addEventListener('click', function () {
             document.getElementById('eventDescription').setAttribute("readonly", true);
@@ -97,7 +96,6 @@
 
 
         });
-
 
         document.getElementById('submitDetails').addEventListener('click', function () {
             document.getElementById('tableBody').parentElement.parentElement.style.opacity = '0.5';
