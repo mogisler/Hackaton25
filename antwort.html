@@ -103,10 +103,10 @@
         // Funktion zum Erstellen eines verschachtelten Tabellenabschnitts für Array-Objekte
         function createNestedTable(array) {
             const nestedTable = document.createElement('table');
-            nestedTable.className = 'table table-sm';
+            nestedTable.className = 'table table-sm table-bordered border-primary ';
             array.forEach((item, index) => {
                 const headerRow = document.createElement('tr');
-                const headerCell = createCell(`Element ${index + 1}:`, true, 2);
+                const headerCell = createCell(`Nummer  ${index + 1}:`, true, 2);
                 headerRow.appendChild(headerCell);
                 nestedTable.appendChild(headerRow);
                 for (let key in item) {
@@ -123,11 +123,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const tbody = document.querySelector('tbody');
 
-            // Kopfzeile
-            const headerRow = document.createElement('tr');
-            headerRow.appendChild(createCell('AVeranstaltung', true));
-            headerRow.appendChild(createCell('ABeschreibung', true));
-            tbody.appendChild(headerRow);
+
 
             // Durchlaufen der Eigenschaften in testliste
             for (let property in testliste) {
@@ -138,15 +134,12 @@
                 // Wenn der Wert ein Array ist, erstelle verschachtelte Tabellen
                 if (Array.isArray(value)) {
                     const cell = document.createElement('td');
-                    cell.colSpan = 4;
+                    cell.colSpan = 1;
                     cell.appendChild(createNestedTable(value));
                     row.appendChild(cell);
                 } else {
                     // Bei einfachen Textwerten
-                    row.appendChild(createCell(value, false, 2));
-                    // Beispiel: Leere Zelle für Begründung, falls nicht vorhanden
-                    row.appendChild(createCell(''));
-                    row.appendChild(createCell(''));
+                    row.appendChild(createCell(value, false, 1));
                 }
                 tbody.appendChild(row);
             }
