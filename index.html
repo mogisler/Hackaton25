@@ -185,7 +185,7 @@
                 </form>
             </div>
         </div>
-        <div class="container my-4">
+        <div class="container my-4 d-none" id="detailsContainer">
             <div class="row">
                 <h3>Fehlende Informationen zum Event in der Tabelle einfügen</h3>
                 <table class="table table-bordered">
@@ -196,7 +196,7 @@
                 <button id="submitDetails" class="btn btn-primary mt-3 col-3">Submit</button>
             </div>
         </div>
-        <div class="container my-5">
+        <div class="container my-5 d-none" id="lastAnswerContainer">
             <div class="row">
                 <div class="col">
                     <table class="table table-bordered table-striped">
@@ -222,6 +222,24 @@
         crossorigin="anonymous"></script>
     <script src="frontend.js"></script>
     <script src="displaytable.js"></script>
+
+    <script>
+        document.getElementById('submit').addEventListener('click', function () {
+            document.getElementById('eventDescription').setAttribute("readonly", true);
+            document.getElementById('eventDescription').setAttribute("disabled", true);
+            document.getElementById('detailsContainer').classList.remove('d-none');
+        });
+
+
+        document.getElementById('submitDetails').addEventListener('click', function () {
+            document.getElementById('eventDescription').setAttribute("readonly", true);
+            document.getElementById('eventDescription').setAttribute("disabled", true);
+            document.getElementById('lastAnswerContainer').classList.remove('d-none');
+        });
+
+
+    </script>
+
 </body>
 
 </html>
