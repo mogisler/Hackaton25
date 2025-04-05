@@ -1,11 +1,14 @@
 import express from "express";
 import OpenAI from "openai";
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 
 const app = express();
+const router = express.Router();
 const port = 3000;
+app.use(cors()); // Enable CORS for all routes
 
 // Middleware to parse JSON requests
 app.use(express.json());
@@ -15,8 +18,9 @@ const client = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY, // This is the default and can be omitted
   });
 
+
 // API endpoint for OpenAI completion
-app.post("/api/completion", async (req, res) => {
+router.post("test", async (req, res) => {
     console.log(`request on ${port}`);
     const { prompt } = req.body;
 
@@ -52,3 +56,20 @@ try {
     console.error(`Failed to start the server: ${error}`);
     process.exit(1);
 }
+
+app.post('/test', (req, res) => {
+    console.log("POST request received at /test");
+    const { prompt } = req.body;
+    console.log(`Prompt: ${prompt}`);
+
+    // Simulate a response from OpenAI
+    const simulatedResponse = `Simulated response for prompt: ${prompt}`;
+    
+    res.send({ response: simulatedResponse });
+});
+
+app.get('/test', (req, res) => {
+    console.log("GET request received at /");
+    res.json({test:'Hello, Express!'});
+   // res.send('Hello, Express!');
+});
