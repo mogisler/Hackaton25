@@ -8,6 +8,152 @@
     <link rel="icon" href="./srcFrontend/PlanIt_Logo.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
+
+
+    <script>
+        const testliste = {
+            "Veranstaltung": "Konzert auf einer Wiese in Altdorf mit 50 Gästen, lauter Musik, Verpflegung, Alkoholausschank und Feuerwerk",
+            "Gesuche": [
+                {
+                    "Status": "Benötigt",
+                    "Typ": "Gesuch",
+                    "Titel": "Gesuch Schiesspulver und Pyrotechnik an historischen Anlässen",
+                    "Beschreibung": "Das Dokument ist ein Antragsformular der Kantonspolizei Uri für die Verwendung von Schiesspulver, Feuerwerk und Pyrotechnik bei historischen Anlässen und Bräuchen. Es weist darauf hin, dass gemäss Bundesgesetz über explosionsgefährliche Stoffe die Verwendung solcher Materialien zu Vergnügungszwecken verboten ist, jedoch kantonale Ausnahmen für historische Anlässe oder ähnliche Bräuche bewilligt werden können. Das Formular verlangt detaillierte Angaben zum Ereignis, zum Veranstalter, zu den verwendeten Waffen und Materialien sowie zu Lagerung und Versicherung. Zudem sind Beilagen wie eine gültige Versicherungspolice und eine Stellungnahme oder Bewilligung der Gemeinde erforderlich. Zu den Auflagen gehört unter anderem, dass nur ausgebildete Personen die Waffen oder Abschussvorrichtungen bedienen dürfen und diese vor unberechtigtem Zugriff gesichert werden müssen.",
+                    "Ebene": "Kanton",
+                    "Zuständigkeit": "Kantonspolizei",
+                    "Kontakt": "kapo.rws@ur.ch",
+                    "Link Übersicht": "kein Link vorhanden",
+                    "Link Formular": "https://www.ur.ch/_docn/339922/Gesuch_Schiesspulver_Pyrotechnik_historische_Anlaesse.pdf",
+                    "Begründung": "Da ein Feuerwerk geplant ist, wird ein entsprechendes Gesuch für Pyrotechnik benötigt."
+                },
+                {
+                    "Status": "Benötigt",
+                    "Typ": "Gesuch",
+                    "Titel": "Gesuch um Erteilung einer Verkaufsbewilligung von pyrotechnischen Gegenständen",
+                    "Beschreibung": "Die Kantonspolizei Uri erfordert für den Verkauf und die Lagerung von pyrotechnischen Gegenständen (Feuerwerkskörpern der Kategorien 2 und 3) eine Verkaufsbewilligung, die für den Zeitraum rund um den 1. August und Silvester gilt. Der Antragsteller muss Informationen zu den Verkaufsstellen, Lagerräumen und verantwortlichen Personen angeben, einschließlich Nachweisen über rechtliche Kenntnisse und Umgang mit explosionsgefährlichen Stoffen. Verkaufsräume dürfen nur eine begrenzte Menge an pyrotechnischen Gegenständen aufweisen und müssen bestimmten Sicherheitsvorkehrungen, wie Rauchverbot und Brandschutzmaßnahmen, entsprechen. Der Verkauf im Freien darf nur unter Aufsicht von geschultem Personal und in begrenzten Mengen stattfinden. Es gelten strenge Vorschriften zur Lagerung, Präsentation und dem Umgang mit Feuerwerk, die sich aus verschiedenen Gesetzen und Verordnungen ableiten.",
+                    "Ebene": "Kanton",
+                    "Zuständigkeit": "Kantonspolizei",
+                    "Kontakt": "kapo.rws@ur.ch",
+                    "Link Übersicht": "https://www.ur.ch/dienstleistungen/3215",
+                    "Link Formular": "https://www.ur.ch/_docn/375046/Gesuch_um_Erteilung_einer_Verkaufsbewilligung_Pyrotechnik_II-III.pdf",
+                    "Begründung": "Da ein Feuerwerk geplant ist, wird ein entsprechendes Gesuch für Pyrotechnik benötigt."
+                },
+                {
+                    "Status": "Benötigt",
+                    "Typ": "Gesuch",
+                    "Titel": "Lärmintensive Veranstaltungen auf öffentlichem Grund",
+                    "Beschreibung": "Die drei Dokumente betreffen die Beantragung und Verwaltung von lärmintensiven Veranstaltungen auf öffentlichem Grund in Altdorf. Das Gesuchsformular (Anhang 1) erfordert detaillierte Angaben zur Veranstaltung und deren Lautstärke. Die Kontingente (Anhang 2) legen fest, wie viele solcher Veranstaltungen pro Jahr und pro Veranstaltungsort erlaubt sind, wobei bestimmte Veranstaltungen wie Fasnacht und der Nationalfeiertag ausgenommen sind. Die Checkliste (Anhang 3) dient als Leitfaden für die Bewertung der Gesuche durch den Gemeinderat, basierend auf Kriterien wie die Bedeutung der Veranstaltung und die zu erwartenden Beeinträchtigungen für die Allgemeinheit.",
+                    "Ebene": "Gemeinde",
+                    "Zuständigkeit": "Gemeinde Altdorf",
+                    "Kontakt": "liegenschaften@altdorf.ch",
+                    "Link Übersicht": "https://www.altdorf.ch/publikationen/205864",
+                    "Link Formular": "https://www.altdorf.ch/_docn/2108002/Anhang_1_Gesuchsformular.pdf",
+                    "Begründung": "Da laute Musik gespielt wird, ist eine Meldung oder Bewilligung wegen Lärmemissionen erforderlich."
+                },
+                {
+                    "Status": "Benötigt",
+                    "Typ": "Gesuch",
+                    "Titel": "Lärm: Meldepflicht: für Veranstaltungen über 93 dB(A)",
+                    "Beschreibung": "Meldepflicht: Veranstaltungen müssen beim Amt für Umwelt spätestens 14 Tage im Voraus gemeldet werden, wenn der über 60 Minuten gemittelte Schallpegel 93 dB(A) übersteigt (Meldeformular Schall)",
+                    "Ebene": "Kanton",
+                    "Zuständigkeit": "Amt für Umwelt",
+                    "Kontakt": "afu@ur.ch",
+                    "Link Übersicht": "https://www.ur.ch/dienstleistungen/3629",
+                    "Link Formular": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ur.ch%2F_docn%2F358276%2F02_meldeformular_schall.docx&wdOrigin=BROWSELINK",
+                    "Begründung": "Da laute Musik gespielt wird, ist eine Meldung oder Bewilligung wegen Lärmemissionen erforderlich."
+                }
+            ],
+            "Informationen": [
+                {
+                    "Status": "Benötigt",
+                    "Typ": "Information",
+                    "Titel": "Sicherheit einer Veranstaltung",
+                    "Beschreibung": "Planen Sie eine Veranstaltung oder müssen Sie die Bewilligung für eine solche erteilen? Dann sind Sie früher oder später mit Fragen rund um die Sicherheit konfrontiert. Sie erstellen ein Sicherheitskonzept oder müssen dieses prüfen? Die Webseite event-safety-security.ch bietet umfassende Informationen zur Veranstaltungssicherheit in der Schweiz. Sie richtet sich an Veranstalter, Behörden und Sicherheitsunternehmen und enthält nützliche Mustervorlagen sowie Tipps zur Erstellung von Sicherheitskonzepten. Da es kein nationales Veranstaltungsgesetz gibt, stellt die Plattform eine wichtige Anlaufstelle für Fragen und Unsicherheiten dar. Weiterhin sind regionale Ansprechpersonen des Nationalen Fachgremiums Crowd Management (NFCM) für spezifische Anliegen aufgeführt. Weitere Details sind auf der Webseite verfügbar.",
+                    "Ebene": "Kanton",
+                    "Zuständigkeit": "Kantonspolizei",
+                    "Kontakt": " anlassbewilligung.kapo@ur.ch",
+                    "Link Übersicht": "https://www.ur.ch/publikationen/23705",
+                    "Link Formular": "https://www.ur.ch/_docn/249023/Veranstaltungen_sicher_durchfuhren_Crowd_Management_KKPKS.pdf",
+                    "Begründung": "Bei öffentlichen Anlässen mit vielen Personen sind Sicherheitsaspekte zwingend zu beachten."
+                },
+                {
+                    "Status": "Benötigt",
+                    "Typ": "Information",
+                    "Titel": "Richtlinien für die Erteilung von Bewilligungen für lärmintensive Veranstaltungen auf öffentlichem Grund",
+                    "Beschreibung": "Das Dokument enthält Richtlinien für die Erteilung von Bewilligungen für lärmintensive Veranstaltungen auf öffentlichem Grund in Altdorf. Es definiert lärmintensive Veranstaltungen als solche, die nach 20 Uhr stattfinden oder laute Musikinstrumente und Lautsprecher verwenden. Der Gemeinderat entscheidet über die Bewilligung, basierend auf Kriterien wie die Bedeutung der Veranstaltung und die zu erwartenden Beeinträchtigungen für die Allgemeinheit. Es gibt festgelegte Kontingente für solche Veranstaltungen, die jährlich vergeben werden. Besondere Veranstaltungen wie Fasnacht und der Nationalfeiertag sind von diesen Kontingenten ausgenommen.",
+                    "Ebene": "Gemeinde",
+                    "Zuständigkeit": "",
+                    "Kontakt": "",
+                    "Link Übersicht": "https://www.altdorf.ch/publikationen/205864",
+                    "Link Formular": "https://www.altdorf.ch/_docn/2108011/Richtlinien_Veranstaltungen.pdf",
+                    "Begründung": "Da laute Musik gespielt wird, ist eine Meldung oder Bewilligung wegen Lärmemissionen erforderlich."
+                }
+            ]
+        }
+            ;
+
+        // Funktion zum Erstellen einer Tabellenzelle
+        function createCell(text, isHeader = false, colspan = 1) {
+            const cell = document.createElement(isHeader ? 'th' : 'td');
+            cell.textContent = text;
+            if (colspan > 1) {
+                cell.colSpan = colspan;
+            }
+            return cell;
+        }
+
+        // Funktion zum Erstellen eines verschachtelten Tabellenabschnitts für Array-Objekte
+        function createNestedTable(array) {
+            const nestedTable = document.createElement('table');
+            nestedTable.className = 'table table-bordered table-striped table-responsive-sm';
+            array.forEach((item, index) => {
+                const headerRow = document.createElement('tr');
+                const headerCell = createCell(`➜ ${index + 1}:`, true, 2);
+                headerRow.appendChild(headerCell);
+                nestedTable.appendChild(headerRow);
+                for (let key in item) {
+                    const row = document.createElement('tr');
+                    row.appendChild(createCell(key));
+                    row.appendChild(createCell(item[key] || ''));
+                    nestedTable.appendChild(row);
+                }
+            });
+            return nestedTable;
+        }
+
+        // Initialisierung der Tabelle nach dem Laden des Dokuments
+        document.addEventListener('DOMContentLoaded', () => {
+            const tbody = document.querySelector('tbody');
+
+
+
+            // Durchlaufen der Eigenschaften in testliste
+            for (let property in testliste) {
+                const row = document.createElement('tr');
+                row.appendChild(createCell(property, true));
+
+                const value = testliste[property];
+                // Wenn der Wert ein Array ist, erstelle verschachtelte Tabellen
+                if (Array.isArray(value)) {
+                    const cell = document.createElement('td');
+                    cell.colSpan = 1;
+                    cell.appendChild(createNestedTable(value));
+                    row.appendChild(cell);
+                } else {
+                    // Bei einfachen Textwerten
+                    row.appendChild(createCell(value, false, 1));
+                }
+                tbody.appendChild(row);
+            }
+        });
+    </script>
+
+
+
+
+
+
+
 </head>
 
 <body>
@@ -37,6 +183,17 @@
                     </div>
                     <button id="submit" type="button" class="mt-3 btn btn-primary">Submit</button>
                 </form>
+            </div>
+        </div>
+        <div class="container my-5">
+            <div class="row">
+                <div class="col">
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+                            <!-- Die Tabelle wird dynamisch generiert -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </main>
