@@ -34,7 +34,7 @@ app.post('/openAPI', async(req, res) => {
     - Zeit: Wenn bekannt die Uhrzeit in der Form HH:mm\
     - Ausschank: Boolean-Wert (true, false) ob an der Veranstaltung\ Essen und Getränke verkauft werden\
     \
-    Wichtig: Wenn eine Information nicht bekannt ist, bitte `null`\ zurückgeben. Bitte gib ein reines unformatiertes JSON zurück.\
+    Wichtig: Wenn eine Information nicht bekannt ist, bitte `null`\ zurückgeben. Wenn ein boolean nicht bekannt ist gib "false" zurück. Bitte gib ein reines unformatiertes JSON zurück.\
     \
     # JSON Format\
     \
