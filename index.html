@@ -232,14 +232,11 @@
 
 
         document.getElementById('submitDetails').addEventListener('click', function () {
-            document.getElementById('eventDescription').setAttribute("readonly", true);
-            document.getElementById('eventDescription').setAttribute("disabled", true);
+            document.getElementById('tableBody').parentElement.parentElement.style.opacity = '0.5';
+            document.getElementById('tableBody').parentElement.parentElement.style.pointerEvents = 'none';
             document.getElementById('lastAnswerContainer').classList.remove('d-none');
         });
-
-
     </script>
-
 </body>
 
 </html>
