@@ -37,6 +37,19 @@ app.post('/openAPI', async(req, res) => {
     }
 });
 
+app.post('/trainedAPI', async(req, res) => {
+    const thread = await client.beta.threads.create();
+    await client.beta.threads.messages.create(thread.id, {
+        role: 'user',
+        content: "Ich möchte eine private Veranstaltung in meinem Garten in Altdorf organisieren. Es kommen ca. 20 Personen aus der ganzen Schweiz primär mit ihrem Auto. Leider habe ich nicht genügend Parkplätze. Mein Kollege Toni bringt eine Drone mit, damit wir diese nutzen können.",
+    });
+    
+    const run = await client.beta.threads.runs.create(thread.id, {
+        assistant_id:'asst_TIseKb88KKuVNXy7rGbErSpi',
+    });
+
+});
+
 try {
     // Start the server
     const server = app.listen(port, () => {

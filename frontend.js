@@ -35,7 +35,7 @@ document.getElementById("submit").addEventListener("click", async () => {
             body:  JSON.stringify({ prompt : prompt }),
         };
 
-        const response = await fetch("http://localhost:3000/openAPI", request);
+        const response = await fetch("http://localhost:3000/trainedAPI", request);
 
         const data = await response.json();
         if (response.ok) {
