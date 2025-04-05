@@ -23,7 +23,7 @@
     </header>
     <main>
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center my-2 d-none" id="progressBarContainer">
                 <div class="col-11 progress">
                     <div class="progress-bar" role="progressbar" id="progress" aria-valuemin="0" aria-valuemax="100">
                     </div>
@@ -92,6 +92,7 @@
             document.getElementById('eventDescription').setAttribute("readonly", true);
             document.getElementById('eventDescription').setAttribute("disabled", true);
             document.getElementById('detailsContainer').classList.remove('d-none');
+            document.getElementById('progressBarContainer').classList.remove('d-none');
             document.getElementById('progress').style.width = '50%';
 
 
