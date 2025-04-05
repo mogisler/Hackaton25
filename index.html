@@ -123,7 +123,7 @@
 
         // Initialisierung der Tabelle nach dem Laden des Dokuments
         document.addEventListener('DOMContentLoaded', () => {
-            const tbody = document.querySelector('tbody');
+            const tbody = document.getElementById('letzteTabelle');
 
 
 
@@ -167,7 +167,7 @@
         </nav>
     </header>
     <main>
-        <div class="container mt-5">
+        <div class="container my-5">
             <div class="row justify-content-center">
 
                 <form id="eventForm" class="col-11 my-auto border border-primary-subtle p-4 rounded">
@@ -185,11 +185,22 @@
                 </form>
             </div>
         </div>
-        <div class="container my-5">
+        <div class="container my-4 d-none" id="detailsContainer">
+            <div class="row">
+                <h3>Fehlende Informationen zum Event in der Tabelle einfügen</h3>
+                <table class="table table-bordered">
+                    <tbody id="tableBody">
+                        <!-- Rows will be dynamically added here -->
+                    </tbody>
+                </table>
+                <button id="submitDetails" class="btn btn-primary mt-3 col-3">Submit</button>
+            </div>
+        </div>
+        <div class="container my-5 d-none" id="lastAnswerContainer">
             <div class="row">
                 <div class="col">
                     <table class="table table-bordered table-striped">
-                        <tbody>
+                        <tbody id="letzteTabelle">
                             <!-- Die Tabelle wird dynamisch generiert -->
                         </tbody>
                     </table>
@@ -210,6 +221,22 @@
         integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu"
         crossorigin="anonymous"></script>
     <script src="frontend.js"></script>
+    <script src="displaytable.js"></script>
+
+    <script>
+        document.getElementById('submit').addEventListener('click', function () {
+            document.getElementById('eventDescription').setAttribute("readonly", true);
+            document.getElementById('eventDescription').setAttribute("disabled", true);
+            document.getElementById('detailsContainer').classList.remove('d-none');
+        });
+
+
+        document.getElementById('submitDetails').addEventListener('click', function () {
+            document.getElementById('tableBody').parentElement.parentElement.style.opacity = '0.5';
+            document.getElementById('tableBody').parentElement.parentElement.style.pointerEvents = 'none';
+            document.getElementById('lastAnswerContainer').classList.remove('d-none');
+        });
+    </script>
 </body>
 
 </html>
