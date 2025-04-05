@@ -69,7 +69,7 @@ document.getElementById("submit").addEventListener("click", async () => {
             tableBody.appendChild(row);
         
         }
-        
+        document.getElementById('submitDetails').disabled = false;
     } catch (error) {
         console.error(error);
         document.getElementById("response").innerText = "Failed to connect to the server.";
