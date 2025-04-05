@@ -21,7 +21,7 @@ const client = new OpenAI({
 // API endpoint for OpenAI completion
 app.post('/openAPI', async(req, res) => {
     console.log(`request on ${port}`);
-    const { inputprompt } = req.body;
+    const { inputPrompt } = req.body;
 
     const prompt = '# Einleitung \
     \
@@ -47,7 +47,7 @@ app.post('/openAPI', async(req, res) => {
         "Ausschank": <bool>\
     }\
     \
-    # Information zur Veranstaltung \\ '+ inputPromt;
+    # Information zur Veranstaltung \\ '+ inputPrompt;
 
 
 
