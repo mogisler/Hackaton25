@@ -361,5 +361,16 @@
     "Zustaendigkeit": "Laboratorien der Urkantone",
     "KontaktEmail": "kt@laburk.ch",
     "KontaktTelefon": "041 825 41 51"
+  },
+  {
+    "Kategorie": "Gesuch",
+    "Titel": "Gesuch Grossanlass Andermatt",
+    "Beschreibung": "Das Gesuch um Erteilung einer Anlassbewilligung gemäß dem Gesetz über den Konsum und die Abgabe von Getränken und Speisen (GWG) ist ein Formular, das von Veranstaltern ausgefüllt werden muss, um eine Genehmigung für Veranstaltungen, bei denen Speisen und/oder Getränke abgegeben werden, zu erhalten. Es enthält Angaben zum Veranstalter, dem Anlass, der Örtlichkeit und den geplanten Zeiten. Zudem werden Informationen zur Anzahl der Personen, dem Verkauf von Speisen und Getränken sowie der Zulassung von unter 18-Jährigen abgefragt. Es müssen auch Bedingungen zum Jugendschutz und zur Einhaltung bau-, gesundheits-, feuer- und verkehrspolizeilicher Anforderungen berücksichtigt werden. Das Gesuch muss mindestens 10 Tage vor dem Anlass eingereicht werden.",
+    "LinkInformationsseite": "https://www.gemeinde-andermatt.ch/verwaltung/online-schalter.html/70",
+    "LinkFormular": "https://www.gemeinde-andermatt.ch/public/upload/assets/690/Grossanlassgesuch_Gemeinde.pdf?fp=1542959697356",
+    "Ebene": "Gemeinde",
+    "Zustaendigkeit": "Andermatt",
+    "KontaktEmail": "gemeinde@andermatt.ch",
+    "KontaktTelefon": "041 880 71 41"
   }
 ]

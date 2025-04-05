@@ -49,4 +49,5 @@ document.getElementById("submit").addEventListener("click", async () => {
         console.error(error);
         document.getElementById("response").innerText = "Failed to connect to the server.";
     }
+    //window.location.href = "eventdetails.html";
 });
